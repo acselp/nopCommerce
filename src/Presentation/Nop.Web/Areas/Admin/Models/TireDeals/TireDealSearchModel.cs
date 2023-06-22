@@ -17,9 +17,10 @@ public record TireDealSearchModel : BaseSearchModel
     [NopResourceDisplayName("Admin.Promotions.TireDeals.Search.Id")]
     public string SearchTireDealId { get; set; }
 
-    public string SearchTireDealIsActive { get; set; }
-
     [NopResourceDisplayName("Admin.Promotions.TireDeals.Search.IsActive")]
 
+    public string SearchTireDealIsActive { get; set; }
+
+    // [NopResourceDisplayName("Admin.Promotions.TireDeals.Search.IsActive")]
     public IList<SelectListItem> AvailableActiveOptions { get; set; }
 }
