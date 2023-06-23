@@ -80,7 +80,9 @@ public class TireDealModelFactory : ITireDealModelFactory
                 LongDescription = item.LongDescription,
                 BackgroundPictureUrl = await _pictureService.GetPictureUrlAsync(item.BackgroundPictureId),
                 BrandPictureUrl = await _pictureService.GetPictureUrlAsync(item.BrandPictureId),
-                IsActive = item.IsActive
+                IsActive = item.IsActive,
+                StartDate = (await _discountService.GetDiscountByIdAsync(item.DiscountId)).StartDateUtc.ToString(),
+                EndDate = (await _discountService.GetDiscountByIdAsync(item.DiscountId)).EndDateUtc.ToString(),
             });
         }
 

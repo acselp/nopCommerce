@@ -1,4 +1,5 @@
-﻿using Nop.Web.Framework.Models;
+﻿using Nop.Core.Domain.Discounts;
+using Nop.Web.Framework.Models;
 
 namespace Nop.Web.Areas.Admin.Models.TireDeals;
 
@@ -11,5 +12,6 @@ public record PublicInfoModel : BaseNopModel
     public string ShortDescription { get; set; }
     public string BackgroundPictureUrl { get; set; }
     public string BrandPictureUrl { get; set; }
-    public bool AssignedToManufacturer { get; set; }
+    public string StartDate { get; set; }
+    public string EndDate { get; set; }
 }

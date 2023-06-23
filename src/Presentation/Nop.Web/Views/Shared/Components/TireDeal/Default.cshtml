@@ -9,25 +9,17 @@
     <div class="tire-deal-modal">
         <i class="fa-solid fa-xmark close-icon"></i>
         <div id="tire-title-modal" class="tire-modal-title">
-            
         </div>
         <div id="tire-shortdescription-modal" class="tire-modal-description">
-            @Model[1].ShortDescription
         </div>
         <div class="slide-image tire-modal-image">
-            <img  id="tire-image-modal"  src="" alt=""/>
-            <div class="brand tire-modal-brand">
-                <img src="@Model[1].BrandPictureUrl" alt=""/>
-            </div>
+            <img id="tire-image-modal" src="" alt=""/>
+            <div class="deal-ends-container">Deal Ends <span id="deal-ends"></span></div>
         </div>
-        
         <div id="tire-longdescription-modal" class="tire-modal-long-description">
-            @Model[1].LongDescription
         </div>
     </div>
 </div>
-
-
 
 <div class="tire-deals-container">
     <div class="deals-top">
@@ -44,9 +36,7 @@
                 <div class="slide">
                     <div class="slide-image">
                         <img src="@item.BackgroundPictureUrl" alt=""/>
-                        <div class="brand">
-                            <img src="@item.BrandPictureUrl" alt=""/>
-                        </div>
+                        <div class="deal-ends-container">Deal Ends &nbsp;<span id="deal-ends">@item.EndDate</span></div>
                     </div>
                     <div class="slide-title">
                         @item.Title
@@ -99,12 +89,11 @@
                 $("#tire-shortdescription-modal").text(model.ShortDescription);
                 $("#tire-longdescription-modal").text(model.LongDescription);
                 $("#tire-image-modal").attr("src", model.BackgroundPictureUrl);
+                $("#deal-ends").text(model.EndDate);
                 
                 return;
             }
         })
-        
-        
         
         $('.tire-deal-modal-container').fadeIn();
     }
