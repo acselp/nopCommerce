@@ -122,13 +122,19 @@
                              new ColumnProperty(nameof(TireDealModel.BackgroundPictureUrl))
                              {
                                  Title = "Picture",
-                                 Width = "100",
+                                 Width = "200",
                                  Render = new RenderPicture(width: 150)
                              },
                              new ColumnProperty(nameof(TireDealModel.Title))
                              {
                                  Title = "Title",
                                  Width = "50"
+                             },
+                             new ColumnProperty(nameof(TireDealModel.DiscountName))
+                             {
+                                 Title = "Discount",
+                                 Width = "150",
+                                 Render = new RenderLink(new DataUrl("~/Admin/Discount/Edit", nameof(TireDealModel.DiscountId)))
                              },
                              new ColumnProperty(nameof(TireDealModel.ShortDescription))
                              {

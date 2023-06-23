@@ -15,6 +15,7 @@ public record TireDealUpdateModel
     [NopResourceDisplayName("Plugins.Widgets.NivoSlider.Picture")]
     [UIHint("Picture")]
     public int BackgroundPictureId { get; set; }
+    public int DiscountId { get; set; }
 
     public bool BackgroundPictureId_OverrideForStore { get; set; }
 

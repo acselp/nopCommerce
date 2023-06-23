@@ -2,25 +2,26 @@
     Layout = "";
 }
 
+@using System.Text.Json
 @model IList<Nop.Web.Areas.Admin.Models.TireDeals.PublicInfoModel>
 
 <div class="tire-deal-modal-container" hidden="hidden"> 
     <div class="tire-deal-modal">
         <i class="fa-solid fa-xmark close-icon"></i>
-        <div class="tire-modal-title">
-            @Model[1].Title
+        <div id="tire-title-modal" class="tire-modal-title">
+            
         </div>
-        <div class="tire-modal-description">
+        <div id="tire-shortdescription-modal" class="tire-modal-description">
             @Model[1].ShortDescription
         </div>
         <div class="slide-image tire-modal-image">
-            <img src="@Model[1].BackgroundPictureUrl" alt=""/>
+            <img  id="tire-image-modal"  src="" alt=""/>
             <div class="brand tire-modal-brand">
                 <img src="@Model[1].BrandPictureUrl" alt=""/>
             </div>
         </div>
         
-        <div class="tire-modal-long-description">
+        <div id="tire-longdescription-modal" class="tire-modal-long-description">
             @Model[1].LongDescription
         </div>
     </div>
@@ -54,7 +55,7 @@
                         @item.ShortDescription
                     </div>
                     <div class="slide-buttons">
-                        <span class="tire-view-details" onclick="openModal(@item.Id)"> View details </span>
+                        <span class="tire-view-details" onclick="showModal(@item.Id)"> View details </span>
                     </div>
                 </div>   
             }
@@ -85,9 +86,28 @@
         $('.tire-deal-modal-container').fadeOut();
     })
     
-    $('.tire-view-details').on("click", () => {
+    function showModal(id) {
+        let json = @Html.Raw(JsonSerializer.Serialize(Model));
+    
+        let model;
+        
+        json.forEach(item => {
+            if (item.Id === id) {
+                model = item;
+               
+                $("#tire-title-modal").text(model.Title);
+                $("#tire-shortdescription-modal").text(model.ShortDescription);
+                $("#tire-longdescription-modal").text(model.LongDescription);
+                $("#tire-image-modal").attr("src", model.BackgroundPictureUrl);
+                
+                return;
+            }
+        })
+        
+        
+        
         $('.tire-deal-modal-container').fadeIn();
-    })
+    }
     
 </script>
 

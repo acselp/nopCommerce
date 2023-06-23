@@ -8961,11 +8961,15 @@ a.skip:hover {
   padding-left: 20px;
   padding-right: 20px;
   font-weight: bold;
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .slide-buttons {
   padding: 20px;
-  margin-top: 20px;
 }
 
 .tire-view-details {

@@ -119,10 +119,6 @@
     <_ContentIncludedByDefault Remove="Views\Home\Components\TireDeal\Default.cshtml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <AdditionalFiles Include="Components\TireDeal\Default.cshtml" />
-  </ItemGroup>
-
   <!-- This target execute after "Build" target.
     We use it to clean up folder with plugins from unnecessary and obsolete libraries. -->
   <Target Name="NopTarget" AfterTargets="Build">

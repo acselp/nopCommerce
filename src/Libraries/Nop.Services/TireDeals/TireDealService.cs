@@ -74,22 +74,13 @@ public class TireDealService : ITireDealService
     {
         var entity = await _dealRepository.GetByIdAsync(model.Id);
 
-        var bgPicture = await _pictureService.GetPictureByIdAsync(entity.BackgroundPictureId);
-        var brandPicture = await _pictureService.GetPictureByIdAsync(entity.BrandPictureId);
-        
-        if(brandPicture != null)
-            await _pictureService.DeletePictureAsync(brandPicture);
-
-        if(bgPicture != null)
-            await _pictureService.DeletePictureAsync(bgPicture);
-
-        
         entity.Title = model.Title;
         entity.IsActive = model.IsActive;
         entity.LongDescription = model.LongDescription;
         entity.ShortDescription = model.ShortDescription;
         entity.BackgroundPictureId = model.BackgroundPictureId;
         entity.BrandPictureId = model.BrandPictureId;
+        entity.DiscountId = model.DiscountId;
         
         await _dealRepository.UpdateAsync(entity);
     }

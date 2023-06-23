@@ -1,16 +1,13 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Nop.Core.Domain.TireDeals;
 using Nop.Services.TireDeals;
+using Nop.Web.Areas.Admin.Factories;
 using Nop.Web.Areas.Admin.Models.TireDeals;
-using Nop.Web.Factories;
 using Nop.Web.Framework;
 using Nop.Web.Framework.Controllers;
-using Nop.Web.Framework.Mvc.Filters;
 
 namespace Nop.Web.Areas.Admin.Controllers;
 
-[AuthorizeAdmin] //confirms access to the admin panel
 [Area(AreaNames.Admin)] //specifies the area containing a controller or action
 public class TireDealsController : BaseController
 {
@@ -38,9 +35,16 @@ public class TireDealsController : BaseController
 
         return Json(model);
     }
+    
+    public virtual async Task<IActionResult> GetTireDeals()
+    {
+        //prepare model
+        var model = await _tireDealModelFactory.PrepareTireDealPublicModelAsync();
 
-    [HttpPost("{id:int}")]
-    public async Task<IActionResult> GetTireDealById([FromRoute] int id)
+        return Json(model);
+    }
+
+    public async Task<IActionResult> GetTireDealById(int id)
     {
         var entity = await _tireDealService.GetByIdAsync(id);
 
@@ -68,8 +72,11 @@ public class TireDealsController : BaseController
             ShortDescription = entity.ShortDescription,
             LongDescription = entity.LongDescription,
             BackgroundPictureId = entity.BackgroundPictureId,
-            IsActive = entity.IsActive
+            IsActive = entity.IsActive,
+            DiscountId = entity.DiscountId
         };
+        
+        model = await _tireDealModelFactory.PrepareTireDealEditModel(model);
 
         return View(model);
     }
@@ -85,7 +92,8 @@ public class TireDealsController : BaseController
             LongDescription = model.LongDescription,
             BackgroundPictureId = model.BackgroundPictureId,
             BrandPictureId = model.BrandPictureId,
-            IsActive = model.IsActive
+            IsActive = model.IsActive,
+            DiscountId = model.DiscountId
         };
         
         await _tireDealService.UpdateAsync(entity);
@@ -95,7 +103,7 @@ public class TireDealsController : BaseController
 
     public async Task<IActionResult> Create()
     {
-        var model = new TireDealModel();
+        var model = await _tireDealModelFactory.PrepareTireDealCreateModel();
         
         return View(model);
     }
@@ -111,7 +119,8 @@ public class TireDealsController : BaseController
             LongDescription = model.LongDescription,
             BackgroundPictureId = model.BackgroundPictureId,
             BrandPictureId = model.BrandPictureId,
-            IsActive = model.IsActive
+            IsActive = model.IsActive,
+            DiscountId = model.DiscountId
         };
         
         await _tireDealService.InsertAsync(entity);

@@ -11,4 +11,5 @@ public record PublicInfoModel : BaseNopModel
     public string ShortDescription { get; set; }
     public string BackgroundPictureUrl { get; set; }
     public string BrandPictureUrl { get; set; }
+    public bool AssignedToManufacturer { get; set; }
 }
