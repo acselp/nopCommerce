@@ -33,21 +33,7 @@
         <div class="slider-nav">
             @foreach (var item in Model)
             {
-                <div class="slide">
-                    <div class="slide-image">
-                        <img src="@item.BackgroundPictureUrl" alt=""/>
-                        <div class="deal-ends-container">Deal Ends &nbsp;<span id="deal-ends">@item.EndDate</span></div>
-                    </div>
-                    <div class="slide-title">
-                        @item.Title
-                    </div>
-                    <div class="slide-description">
-                        @item.ShortDescription
-                    </div>
-                    <div class="slide-buttons">
-                        <span class="tire-view-details" onclick="showModal(@item.Id)"> View details </span>
-                    </div>
-                </div>   
+               @await Html.PartialAsync("_TireDealSlide", item);
             }
         </div>
         <ul>
@@ -79,17 +65,14 @@
     function showModal(id) {
         let json = @Html.Raw(JsonSerializer.Serialize(Model));
     
-        let model;
-        
         json.forEach(item => {
             if (item.Id === id) {
-                model = item;
                
-                $("#tire-title-modal").text(model.Title);
-                $("#tire-shortdescription-modal").text(model.ShortDescription);
-                $("#tire-longdescription-modal").text(model.LongDescription);
-                $("#tire-image-modal").attr("src", model.BackgroundPictureUrl);
-                $("#deal-ends").text(model.EndDate);
+                $("#tire-title-modal").text(item.Title);
+                $("#tire-shortdescription-modal").text(item.ShortDescription);
+                $("#tire-longdescription-modal").html(item.LongDescription);
+                $("#tire-image-modal").attr("src", item.BackgroundPictureUrl);
+                $("#deal-ends").text(item.EndDate);
                 
                 return;
             }
