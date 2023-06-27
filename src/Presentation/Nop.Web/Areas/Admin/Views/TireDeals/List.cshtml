@@ -116,35 +116,41 @@
                          {
                              new ColumnProperty(nameof(TireDealModel.Id))
                              {
-                                 Title = "Id",
+                                 Title = T("Admin.Promotions.TireDeals.Search.Id").Text,
                                  Width = "50"
                              },
                              new ColumnProperty(nameof(TireDealModel.BackgroundPictureUrl))
                              {
-                                 Title = "Picture",
-                                 Width = "100",
+                                 Title = T("Admin.Promotions.TireDeals.Common.Picture").Text,
+                                 Width = "200",
                                  Render = new RenderPicture(width: 150)
                              },
                              new ColumnProperty(nameof(TireDealModel.Title))
                              {
-                                 Title = "Title",
+                                 Title = T("Admin.Promotions.TireDeals.Common.Title").Text,
                                  Width = "50"
+                             },
+                             new ColumnProperty(nameof(TireDealModel.DiscountName))
+                             {
+                                 Title = T("Admin.Promotions.TireDeals.Common.Discount").Text,
+                                 Width = "150",
+                                 Render = new RenderLink(new DataUrl("~/Admin/Discount/Edit", nameof(TireDealModel.DiscountId)))
                              },
                              new ColumnProperty(nameof(TireDealModel.ShortDescription))
                              {
-                                 Title = "Short description",
+                                 Title = T("Admin.Promotions.TireDeals.Common.ShortDescription").Text,
                                  Width = "300",
                                  ClassName = "truncate-text",
                              },
                              new ColumnProperty(nameof(TireDealModel.LongDescription))
                              {
-                                 Title = "Long description",
+                                 Title = T("Admin.Promotions.TireDeals.Common.LongDescription").Text,
                                  Width = "350",
                                  ClassName = "truncate-text",
                              },
                              new ColumnProperty(nameof(TireDealModel.IsActive))
                              {
-                                 Title = "Is Active",
+                                 Title = T("Admin.Promotions.TireDeals.Common.IsActive").Text,
                                  Width = "20",
                                  ClassName = NopColumnClassDefaults.CenterAll,
                                  Render = new RenderBoolean()

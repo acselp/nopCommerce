@@ -162,6 +162,64 @@
   <LocaleResource Name="Account.CustomerOrders.OrderDate">
     <Value>Order Date</Value>
   </LocaleResource>
+
+
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.Title">
+    <Value>Title</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.Title.Hint">
+    <Value>Add title</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.IsActive">
+    <Value>Active</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.IsActive.Hint">
+    <Value>Check if active</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.ShortDescription">
+    <Value>Short Description</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.ShortDescription.Hint">
+    <Value>Add short description</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.LongDescription">
+    <Value>Long Description</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.LongDescription.Hint">
+    <Value>Add long description</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.Discount">
+    <Value>Discount</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.Discount.Hint">
+    <Value>Select a discount</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.Picture">
+    <Value>Image</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Promotions.TireDeals.Common.Picture.Hint">
+    <Value>Add image</Value>
+  </LocaleResource>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <LocaleResource Name="Account.CustomerOrders.OrderDetails">
     <Value>Details</Value>
   </LocaleResource>

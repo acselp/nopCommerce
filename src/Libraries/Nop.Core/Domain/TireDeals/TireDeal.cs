@@ -8,4 +8,5 @@ public class TireDeal : BaseEntity
     public bool IsActive { get; set; }
     public int BrandPictureId { get; set; }
     public int BackgroundPictureId { get; set; }
+    public int DiscountId { get; set; }
 }

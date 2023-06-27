@@ -1,18 +1,18 @@
 ﻿using Nop.Core.Domain.TireDeals;
 using Nop.Data;
-using Nop.Services.Media;
+using Nop.Services.Discounts;
 
 namespace Nop.Services.TireDeals;
 
 public class TireDealService : ITireDealService
 {
     private readonly IRepository<TireDeal> _dealRepository;
-    private readonly IPictureService _pictureService;
+    private readonly IDiscountService _discountService;
 
-    public TireDealService(IRepository<TireDeal> dealRepository, IPictureService pictureService)
+    public TireDealService(IRepository<TireDeal> dealRepository, IDiscountService discountService)
     {
         _dealRepository = dealRepository;
-        _pictureService = pictureService;
+        _discountService = discountService;
     }
 
     public async Task<IList<TireDeal>> GetAllAsync()
@@ -74,23 +74,30 @@ public class TireDealService : ITireDealService
     {
         var entity = await _dealRepository.GetByIdAsync(model.Id);
 
-        var bgPicture = await _pictureService.GetPictureByIdAsync(entity.BackgroundPictureId);
-        var brandPicture = await _pictureService.GetPictureByIdAsync(entity.BrandPictureId);
-        
-        if(brandPicture != null)
-            await _pictureService.DeletePictureAsync(brandPicture);
-
-        if(bgPicture != null)
-            await _pictureService.DeletePictureAsync(bgPicture);
-
-        
         entity.Title = model.Title;
         entity.IsActive = model.IsActive;
         entity.LongDescription = model.LongDescription;
         entity.ShortDescription = model.ShortDescription;
         entity.BackgroundPictureId = model.BackgroundPictureId;
         entity.BrandPictureId = model.BrandPictureId;
+        entity.DiscountId = model.DiscountId;
         
         await _dealRepository.UpdateAsync(entity);
+    }
+
+    public async Task DeactivateExpiredTireDeals()
+    {
+        var activeTireDeals = await GetAllActiveAsync();
+
+        foreach (var item in activeTireDeals)
+        {
+            var discount = await _discountService.GetDiscountByIdAsync(item.DiscountId);
+
+            if (discount.EndDateUtc < DateTime.UtcNow)
+            {
+                item.IsActive = false;
+                await UpdateAsync(item);
+            }
+        }
     }
 }

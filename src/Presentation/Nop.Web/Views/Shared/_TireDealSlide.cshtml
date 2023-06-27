@@ -1,0 +1,17 @@
+﻿@model Nop.Web.Areas.Admin.Models.TireDeals.PublicInfoModel;
+
+ <div class="slide">
+    <div class="slide-image">
+        <img src="@Model.BackgroundPictureUrl" alt=""/>
+        <div class="deal-ends-container">Deal Ends &nbsp;<span id="deal-ends">@Model.EndDate</span></div>
+    </div>
+    <div class="slide-title">
+        @Model.Title
+    </div>
+    <div class="slide-description">
+        @Model.ShortDescription
+    </div>
+    <div class="slide-buttons">
+        <span class="tire-view-details" onclick="showModal(@Model.Id)"> View details </span>
+    </div>
+</div>   

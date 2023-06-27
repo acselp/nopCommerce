@@ -1,7 +1,7 @@
 ﻿using Nop.Core.Infrastructure;
 using Nop.Web.Areas.Admin.Factories;
 using Nop.Web.Areas.Admin.Helpers;
-using Nop.Web.Factories;
+using Nop.Web.Areas.Admin.Mappers;
 using Nop.Web.Framework.Factories;
 using Nop.Web.Infrastructure.Installation;
 using AddressModelFactory = Nop.Web.Areas.Admin.Factories.AddressModelFactory;
@@ -139,6 +139,9 @@ namespace Nop.Web.Infrastructure
             services.AddScoped<Factories.ITopicModelFactory, Factories.TopicModelFactory>();
             services.AddScoped<Factories.IVendorModelFactory, Factories.VendorModelFactory>();
             services.AddScoped<Factories.IWidgetModelFactory, Factories.WidgetModelFactory>();
+
+            //Add custom mappers
+            services.AddScoped<ITireDealMapper, TireDealMapper>();
 
             //helpers classes
             services.AddScoped<ITinyMceHelper, TinyMceHelper>();

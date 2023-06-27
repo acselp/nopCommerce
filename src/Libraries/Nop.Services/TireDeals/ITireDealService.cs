@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Nop.Core.Domain.TireDeals;
+﻿using Nop.Core.Domain.TireDeals;
 
 namespace Nop.Services.TireDeals;
 
@@ -14,4 +13,5 @@ public interface ITireDealService
     Task<TireDeal> GetByIdAsync(int id);
     Task InsertAsync(TireDeal model);
     Task UpdateAsync(TireDeal model);
+    Task DeactivateExpiredTireDeals();
 }

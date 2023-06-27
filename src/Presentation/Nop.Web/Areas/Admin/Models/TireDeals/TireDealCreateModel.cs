@@ -8,5 +8,6 @@ public class TireDealCreateModel
     public string ShortDescription { get; set; }
     public bool IsActive { get; set; } = true;
     public int BrandPictureId { get; set; }
+    public int DiscountId { get; set; }
     public int BackgroundPictureId { get; set; }
 }

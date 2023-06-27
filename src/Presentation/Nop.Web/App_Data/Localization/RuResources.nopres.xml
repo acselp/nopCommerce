@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language Name="Russian">
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.Id">
+        <Value>Id</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.Id.Hint">
+        <Value>Поиск по ИД</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.Title">
+        <Value>Название</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.Title.Hint">
+        <Value>Поиск по Названию</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.IsActive">
+        <Value>Активно</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.IsActive.Hint">
+        <Value>Поиск по Активно</Value>
+    </LocaleResource>
+
+    
+    
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Title">
+        <Value>Название</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Title.Hint">
+        <Value>Добавить название</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.IsActive">
+        <Value>Активно</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.IsActive.Hint">
+        <Value>Добавить Активно</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.ShortDescription">
+        <Value>Короткое описание</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.ShortDescription.Hint">
+        <Value>Добавить короткое описание</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.LongDescription">
+        <Value>Длинное описание</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.LongDescription.Hint">
+        <Value>Добавить длинное описание</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Discount">
+        <Value>Акция</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Discount.Hint">
+        <Value>Добавить акция</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Picture">
+        <Value>Картинка</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Picture.Hint">
+        <Value>Добавить картинку</Value>
+    </LocaleResource>
+
+
+    <LocaleResource Name="Admin.Common.AddNew">
+        <Value>Добавить</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Common.Search">
+        <Value>Поиск</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Common.Edit">
+        <Value>Изменить</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Common.SaveContinue">
+        <Value>Сохранить и продолжить изменения</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Common.Save">
+        <Value>Сохранить</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.BackToList">
+        <Value>Назад к списку акций</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.AddNew">
+        <Value>Добавить новую акцию для шин</Value>
+    </LocaleResource> 
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.Edit">
+        <Value>Изменить акцию для шин</Value>
+    </LocaleResource>
+   
+</Language>

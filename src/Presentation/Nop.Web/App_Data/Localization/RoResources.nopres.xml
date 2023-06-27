@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language Name="Romanian">
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.Id">
+        <Value>Id</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.Id.Hint">
+        <Value>Caută după ID</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.Title">
+        <Value>Denumire</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.Title.Hint">
+        <Value>Caută după denumire</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.IsActive">
+        <Value>Activ</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Search.IsActive.Hint">
+        <Value>Caută după câmul Active</Value>
+    </LocaleResource>
+
+    
+    
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Title">
+        <Value>Denumire</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Title.Hint">
+        <Value>Adaugă denumire</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.IsActive">
+        <Value>Active</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.IsActive.Hint">
+        <Value>Bifează pentru a fi Active</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.ShortDescription">
+        <Value>Descriere scurtă</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.ShortDescription.Hint">
+        <Value>Adaugă descriere scurtă</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.LongDescription">
+        <Value>Descriere lungă</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.LongDescription.Hint">
+        <Value>Adaugă descriere lungă</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Discount">
+        <Value>Promoție</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Discount.Hint">
+        <Value>Adaugă promoție</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Picture">
+        <Value>Imagine</Value>
+    </LocaleResource>
+    <LocaleResource Name="Admin.Promotions.TireDeals.Common.Picture.Hint">
+        <Value>Adaugă imagine</Value>
+    </LocaleResource>
+
+
+
+    <LocaleResource Name="Admin.Common.AddNew">
+        <Value>Adaugă</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Common.Search">
+        <Value>Cautare</Value>
+    </LocaleResource>
+ 
+    
+    <LocaleResource Name="Admin.Common.Edit">
+        <Value>Editează</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Common.SaveContinue">
+        <Value>Salvează și continuă editarea</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Common.Save">
+        <Value>Salvează</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.BackToList">
+        <Value>Înapoi spre lista cu promoții pentru anvelope</Value>
+    </LocaleResource>
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.AddNew">
+        <Value>Adaugă o promoție pentru anvelope nouă</Value>
+    </LocaleResource> 
+    
+    <LocaleResource Name="Admin.Promotions.TireDeals.Edit">
+        <Value>Editează o promoție pentru anvelope</Value>
+    </LocaleResource>
+   
+</Language>
