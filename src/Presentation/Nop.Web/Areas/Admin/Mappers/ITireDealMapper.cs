@@ -8,4 +8,6 @@ public interface ITireDealMapper
     TireDealModel ToModel(TireDeal entity);
     IList<TireDealModel> ToModel(IList<TireDeal> entity);
     TireDeal ToEntity(TireDealModel entity);
+    TireDeal ToEntity(TireDealCreateModel entity);
+    TireDeal ToEntity(TireDealUpdateModel model);
 }

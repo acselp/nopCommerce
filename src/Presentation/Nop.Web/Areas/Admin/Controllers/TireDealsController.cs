@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Nop.Core.Domain.ScheduleTasks;
 using Nop.Core.Domain.TireDeals;
+using Nop.Services.ScheduleTasks;
 using Nop.Services.TireDeals;
 using Nop.Web.Areas.Admin.Factories;
+using Nop.Web.Areas.Admin.Mappers;
 using Nop.Web.Areas.Admin.Models.TireDeals;
 using Nop.Web.Framework;
 using Nop.Web.Framework.Controllers;
@@ -13,11 +16,15 @@ public class TireDealsController : BaseController
 {
     private readonly ITireDealService _tireDealService;
     private readonly ITireDealModelFactory _tireDealModelFactory;
+    private readonly ITireDealMapper _tireDealMapper;
+    private readonly IScheduleTaskService _scheduleTaskService;
 
-    public TireDealsController(ITireDealService tireDealService, ITireDealModelFactory tireDealModelFactory)
+    public TireDealsController(ITireDealService tireDealService, ITireDealModelFactory tireDealModelFactory, ITireDealMapper tireDealMapper, IScheduleTaskService scheduleTaskService)
     {
         _tireDealService = tireDealService;
         _tireDealModelFactory = tireDealModelFactory;
+        _tireDealMapper = tireDealMapper;
+        _scheduleTaskService = scheduleTaskService;
     }
 
     public async Task<IActionResult> List()
@@ -47,35 +54,16 @@ public class TireDealsController : BaseController
     public async Task<IActionResult> GetTireDealById(int id)
     {
         var entity = await _tireDealService.GetByIdAsync(id);
-
-        var model = new TireDealModel()
-        {
-            Id = entity.Id,
-            Title = entity.Title,
-            ShortDescription = entity.ShortDescription,
-            LongDescription = entity.LongDescription,
-            BackgroundPictureId = entity.BackgroundPictureId,
-            IsActive = entity.IsActive
-        };
-        
-        return Json(model);
+    
+        return Json(_tireDealMapper.ToModel(entity));
     }
 
     public async Task<IActionResult> Edit(int id)
     {
         var entity = await _tireDealService.GetByIdAsync(id);
 
-        var model = new TireDealModel()
-        {
-            Id = entity.Id,
-            Title = entity.Title,
-            ShortDescription = entity.ShortDescription,
-            LongDescription = entity.LongDescription,
-            BackgroundPictureId = entity.BackgroundPictureId,
-            IsActive = entity.IsActive,
-            DiscountId = entity.DiscountId
-        };
-        
+        var model = _tireDealMapper.ToModel(entity);
+            
         model = await _tireDealModelFactory.PrepareTireDealEditModel(model);
 
         return View(model);
@@ -84,17 +72,7 @@ public class TireDealsController : BaseController
     [HttpPost]
     public async Task<IActionResult> Edit(TireDealUpdateModel model)
     {
-        var entity = new TireDeal()
-        {
-            Id = model.Id,
-            Title = model.Title,
-            ShortDescription = model.ShortDescription,
-            LongDescription = model.LongDescription,
-            BackgroundPictureId = model.BackgroundPictureId,
-            BrandPictureId = model.BrandPictureId,
-            IsActive = model.IsActive,
-            DiscountId = model.DiscountId
-        };
+        var entity = _tireDealMapper.ToEntity(model);
         
         await _tireDealService.UpdateAsync(entity);
 
@@ -111,17 +89,7 @@ public class TireDealsController : BaseController
     [HttpPost]
     public async Task<IActionResult> Create(TireDealCreateModel model)
     {
-        var entity = new TireDeal()
-        {
-            Id = model.Id,
-            Title = model.Title,
-            ShortDescription = model.ShortDescription,
-            LongDescription = model.LongDescription,
-            BackgroundPictureId = model.BackgroundPictureId,
-            BrandPictureId = model.BrandPictureId,
-            IsActive = model.IsActive,
-            DiscountId = model.DiscountId
-        };
+        var entity = _tireDealMapper.ToEntity(model);
         
         await _tireDealService.InsertAsync(entity);
 

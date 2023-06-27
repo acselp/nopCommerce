@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using System.Globalization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Nop.Data.Extensions;
 using Nop.Services.Discounts;
 using Nop.Services.Media;
@@ -72,6 +73,12 @@ public class TireDealModelFactory : ITireDealModelFactory
 
         foreach (var item in entities)
         {
+            DateTime tempEndDate = new DateTime();
+            var tempEndDateNullable = (await _discountService.GetDiscountByIdAsync(item.DiscountId)).EndDateUtc;
+            
+            if((await _discountService.GetDiscountByIdAsync(item.DiscountId)).EndDateUtc != null)
+                tempEndDate = tempEndDateNullable.Value;
+
             models.Add(new PublicInfoModel()
             {
                 Id = item.Id,
@@ -82,7 +89,7 @@ public class TireDealModelFactory : ITireDealModelFactory
                 BrandPictureUrl = await _pictureService.GetPictureUrlAsync(item.BrandPictureId),
                 IsActive = item.IsActive,
                 StartDate = (await _discountService.GetDiscountByIdAsync(item.DiscountId)).StartDateUtc.ToString(),
-                EndDate = (await _discountService.GetDiscountByIdAsync(item.DiscountId)).EndDateUtc.ToString(),
+                EndDate = tempEndDate.ToString("d MMMM", CultureInfo.CreateSpecificCulture("en-US")) + ", " + tempEndDate.Year
             });
         }
 

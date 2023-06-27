@@ -1,18 +1,18 @@
 ﻿using Nop.Core.Domain.TireDeals;
 using Nop.Data;
-using Nop.Services.Media;
+using Nop.Services.Discounts;
 
 namespace Nop.Services.TireDeals;
 
 public class TireDealService : ITireDealService
 {
     private readonly IRepository<TireDeal> _dealRepository;
-    private readonly IPictureService _pictureService;
+    private readonly IDiscountService _discountService;
 
-    public TireDealService(IRepository<TireDeal> dealRepository, IPictureService pictureService)
+    public TireDealService(IRepository<TireDeal> dealRepository, IDiscountService discountService)
     {
         _dealRepository = dealRepository;
-        _pictureService = pictureService;
+        _discountService = discountService;
     }
 
     public async Task<IList<TireDeal>> GetAllAsync()
@@ -83,5 +83,21 @@ public class TireDealService : ITireDealService
         entity.DiscountId = model.DiscountId;
         
         await _dealRepository.UpdateAsync(entity);
+    }
+
+    public async Task DeactivateExpiredTireDeals()
+    {
+        var activeTireDeals = await GetAllActiveAsync();
+
+        foreach (var item in activeTireDeals)
+        {
+            var discount = await _discountService.GetDiscountByIdAsync(item.DiscountId);
+
+            if (discount.EndDateUtc < DateTime.UtcNow)
+            {
+                item.IsActive = false;
+                await UpdateAsync(item);
+            }
+        }
     }
 }

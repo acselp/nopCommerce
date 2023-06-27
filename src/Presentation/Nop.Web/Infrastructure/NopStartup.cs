@@ -2,7 +2,6 @@
 using Nop.Web.Areas.Admin.Factories;
 using Nop.Web.Areas.Admin.Helpers;
 using Nop.Web.Areas.Admin.Mappers;
-using Nop.Web.Factories;
 using Nop.Web.Framework.Factories;
 using Nop.Web.Infrastructure.Installation;
 using AddressModelFactory = Nop.Web.Areas.Admin.Factories.AddressModelFactory;

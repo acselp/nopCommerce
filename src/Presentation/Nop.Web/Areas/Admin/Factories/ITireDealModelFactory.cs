@@ -1,4 +1,5 @@
-﻿using Nop.Web.Areas.Admin.Models.TireDeals;
+﻿using Nop.Core.Domain.TireDeals;
+using Nop.Web.Areas.Admin.Models.TireDeals;
 
 namespace Nop.Web.Areas.Admin.Factories;
 

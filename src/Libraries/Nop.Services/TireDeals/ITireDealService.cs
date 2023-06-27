@@ -14,4 +14,5 @@ public interface ITireDealService
     Task<TireDeal> GetByIdAsync(int id);
     Task InsertAsync(TireDeal model);
     Task UpdateAsync(TireDeal model);
+    Task DeactivateExpiredTireDeals();
 }

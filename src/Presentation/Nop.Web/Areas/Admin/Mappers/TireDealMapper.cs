@@ -49,4 +49,31 @@ public class TireDealMapper : ITireDealMapper
 
         return entity;
     }
+
+    public TireDeal ToEntity(TireDealUpdateModel model)
+    {
+        var entity = new TireDeal();
+
+        entity.Title = model.Title;
+        entity.IsActive = model.IsActive;
+        entity.LongDescription = model.LongDescription;
+        entity.ShortDescription = model.ShortDescription;
+        entity.BackgroundPictureId = model.BackgroundPictureId;
+
+        return entity;
+    }
+
+    public TireDeal ToEntity(TireDealCreateModel model)
+    {
+        var entity = new TireDeal();
+
+        entity.Title = model.Title;
+        entity.IsActive = model.IsActive;
+        entity.LongDescription = model.LongDescription;
+        entity.ShortDescription = model.ShortDescription;
+        entity.BackgroundPictureId = model.BackgroundPictureId;
+        entity.DiscountId = model.DiscountId;
+
+        return entity;
+    }
 }
