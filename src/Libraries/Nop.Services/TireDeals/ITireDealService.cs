@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Nop.Core.Domain.TireDeals;
+﻿using Nop.Core.Domain.TireDeals;
 
 namespace Nop.Services.TireDeals;
 

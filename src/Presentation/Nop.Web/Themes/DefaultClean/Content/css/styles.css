@@ -9060,6 +9060,14 @@ li.prev:hover, li.next:hover {
   padding-top: 70px;
 }
 
+.tire-deal-modal-left {
+  width: calc(100% - 480px);
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  background-color: #fff0;
+}
+
 .tire-modal-title {
   font-size: 2.2rem;
   font-weight: bold;

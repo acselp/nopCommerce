@@ -6,18 +6,16 @@
 @model IList<Nop.Web.Areas.Admin.Models.TireDeals.PublicInfoModel>
 
 <div class="tire-deal-modal-container" hidden="hidden"> 
+    <div class="tire-deal-modal-left"></div>
     <div class="tire-deal-modal">
         <i class="fa-solid fa-xmark close-icon"></i>
-        <div id="tire-title-modal" class="tire-modal-title">
-        </div>
-        <div id="tire-shortdescription-modal" class="tire-modal-description">
-        </div>
+        <div id="tire-title-modal" class="tire-modal-title"></div>
+        <div id="tire-shortdescription-modal" class="tire-modal-description"></div>
         <div class="slide-image tire-modal-image">
             <img id="tire-image-modal" src="" alt=""/>
-            <div class="deal-ends-container">Deal Ends <span id="deal-ends"></span></div>
+            <div class="deal-ends-container">Deal Ends&nbsp;<span id="deal-ends"></span></div>
         </div>
-        <div id="tire-longdescription-modal" class="tire-modal-long-description">
-        </div>
+        <div id="tire-longdescription-modal" class="tire-modal-long-description"></div>
     </div>
 </div>
 
@@ -59,6 +57,10 @@
     });
     
     $('.close-icon').on("click", () => {
+        $('.tire-deal-modal-container').fadeOut();
+    })
+    
+    $('.tire-deal-modal-left').on("click", () => {
         $('.tire-deal-modal-container').fadeOut();
     })
     
